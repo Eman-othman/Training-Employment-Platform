@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>our client</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style2.css" />
+
+
+
+</head>
+
+<body>
+
+
+    <!-- 
+    ---------------------------------------------SIDE BAR----------------------------------------------------------- -->
+
+    <section side-nav>
+        <div class="navigation">
+            <ul>
+                <p class="code-break">USER NAME</p>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <span class="title">My Account</span>
+                    </a>
+                </li>
+
+
+
+                <li class="list" style="background: #693B69;">
+                    <b></b>
+                    <b></b>
+                    <a href="courses.html" style="color: #A987A8;">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="title">Courses</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="Jobs.html">
+                        <span class="icon">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                        </span>
+                        <span class="title">Jobs</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="communite.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Communite</span>
+                    </a>
+                </li>
+
+
+
+
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="companies.html">
+                        <span class="icon">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </span>
+                        <span class="title">
+                            My conversations</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="settings.html">
+                        <span class="icon">
+                            <ion-icon name="Settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Log out</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="archive.html">
+                        <span class="icon">
+                            <ion-icon name="archive-outline"></ion-icon> <!-- أيقونة الأرشيف -->
+                        </span>
+                        <span class="title">Archive</span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+
+
+        <div class="toggle">
+            <ion-icon name="menu-outline" class="open"></ion-icon>
+            <ion-icon name="close-outline" class="close"></ion-icon>
+        </div>
+    </section>
+
+    <!-- Icon Link-->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--JavaScript Start-->
+
+
+    <script type="text/javascript">
+        let menuToggle = document.querySelector('.toggle')
+        let Navigation = document.querySelector('.navigation')
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle('active')
+            Navigation.classList.toggle('active')
+        }
+
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                let j = 0;
+                while (j < list.length) {
+                    list[j++].className = 'list'
+                }
+                list[i].className = 'list active'
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".open").click(function () {
+                $(".code-break").css('display', 'block');
+
+            });
+            $(".close").click(function () {
+                $(".code-break").css('display', 'none');
+            });
+        });
+    </script>
+
+
+    <!-- 
+    ---------------------------------------------COURSE SECTION----------------------------------------------------------- -->
+    <section class="jobs-list-container">
+        <h2>My Courses</h2>
+
+
+
+
+        <div class="search" id="search">
+            <input type="search" placeholder="Search A Course...">
+
+            <a href="#"><img src="./img/searchIcon.png" alt="" height="20px " width="20px">
+            </a>
+        </div>
+
+        <div class="jobs">
+            <div class="job">
+                <h3 class="job-title">Web Development Basics</h3>
+                <div class="details">
+                    Learn the fundamentals of web development including HTML, CSS, and JavaScript.
+                </div>
+
+                <div class="course-videos">
+                    <ul>
+                        <li data-index="0">
+                            <span>Intro to HTML</span>
+
+                            <div class="play-icon"
+                                onclick="playCourseVideo('https://samplelib.com/lib/preview/mp4/sample-5s.mp4', this, 0)">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+
+                            <span class="status"></span>
+                        </li>
+                        <li data-index="1" class="locked">
+                            <span>CSS Basics</span>
+                            <div class="play-icon"
+                                onclick="playCourseVideo('https://samplelib.com/lib/preview/mp4/sample-10s.mp4', this, 1)">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                            <span class="status"></span>
+                        </li>
+                    </ul>
+                    <video id="coursePlayer" controls controlsList="nodownload noplaybackrate" disablePictureInPicture
+                        style="display: none; width: 100%; max-width: 600px; border-radius: 12px;"></video>
+
+                </div>
+
+                <a href="course-details.html" class="details-btn">More Details</a>
+
+                <form method="POST" action="cancel-registration.php" onsubmit="return confirmCancellation(this);">
+                    <input type="hidden" name="course_id" value="web-dev-101" />
+                    <button type="submit" class="details-btn">Cancel Registration</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="sweetalert.min.js"></script>
+    <script>
+        let currentVideoIndex = 0;
+
+        function confirmCancellation(form) {
+            swal({
+                title: "Are you sure?",
+                text: "Registration for this course will be cancelled.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((confirmed) => {
+                if (confirmed) form.submit();
+            });
+            return false;
+        }
+
+        function playCourseVideo(src, button, index) {
+            const player = document.getElementById('coursePlayer');
+            const allLis = document.querySelectorAll('.course-videos li');
+            const parentLi = button.closest('li');
+
+            if (parentLi.classList.contains('locked')) {
+                alert("Please watch the previous video first.");
+                return;
+            }
+
+            player.src = src;
+            player.style.display = 'block';
+            player.load();
+            player.play().catch(err => {
+                console.error("Playback failed:", err);
+            });
+
+            let lastTime = 0;
+            player.ontimeupdate = () => {
+                if (player.currentTime > lastTime + 1) {
+                    player.currentTime = lastTime;
+                } else {
+                    lastTime = player.currentTime;
+                }
+            };
+
+            player.onended = () => {
+                const status = parentLi.querySelector('.status');
+                status.textContent = ' Completed';
+                parentLi.classList.add('completed');
+                button.classList.add('completed');
+                localStorage.setItem("watched_" + src, "true");
+
+                const next = allLis[index + 1];
+                if (next) {
+                    next.classList.remove('locked');
+                }
+
+
+            };
+
+        }
+
+        window.onload = () => {
+            const videos = document.querySelectorAll(".course-videos li");
+            videos.forEach((item, index) => {
+                const icon = item.querySelector(".play-icon");
+                const src = icon.getAttribute("onclick").match(/'(.*?)'/)[1];
+                const key = "watched_" + src;
+
+
+            });
+
+        };
+
+
+    </script>
+
+
+    <!-- 
+    <section class="jobs-list-container">
+        <h2> My courses</h2>
+        <div class="search" id="search">
+            <input type="search" placeholder="Search A Course...">
+
+            <a href="#"><img src="./img/searchIcon.png" alt="" height="20px " width="20px">
+            </a>
+        </div>
+
+        <div class="jobs">
+            <div class="job">
+                <h3 class="job-title">Course name here</h3>
+                <div class="details">
+                    course details here
+                </div>
+                <a href="course-details.html" class="details-btn">More Details</a>
+                <form method="POST" action="do-something.php" onsubmit="return submitForm(this);">
+
+                    <button class="details-btn">Cancel registration</button>
+                </form>
+            </div>
+        </div>
+
+
+    </section> -->
+    <!-- ---------------------------------------------Register SECTION---------------------------------------------------------- -->
+
+
+
+    <!-- <script src="sweetalert.min.js"></script>
+    <script>
+        function submitForm(form) {
+            swal({
+                title: "Are you sure?",
+                text: "Registration for this course will be cancelled",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then(function (isOkay) {
+                    if (isOkay) {
+                        form.submit();
+                    }
+                });
+            return false;
+        }
+    </script> -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Support</title>
+    <link rel="stylesheet" href="../FrontEnd(Grad1)/Client/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+
+        #ticketInfo {
+            padding: 10px;
+            background-color: #D9D8D9;
+
+            border-bottom: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        #ticketStatus {
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        #closeBtn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar" style="margin-left: 1.5px;">
+        <div class="company-item" id="client" onclick="loadChat('client')">Client</div>
+        <div class="company-item" id="manager" onclick="loadChat('manager')">Manager</div>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <span id="chatTitle">Select a request to view its details</span>
+            <button id="deleteChatBtn" onclick="deleteChat()" style="visibility:hidden;">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+
+        <div id="ticketInfo" style="display: none;">
+            <strong>Ticket #<span id="ticketID">-</span></strong> | <span id="ticketDate"></span><br>
+            <div id="ticketStatus">Status: Open</div>
+            <button id="closeBtn" onclick="closeTicket()">Close Ticket</button>
+        </div>
+
+        <div class="messages" id="messages"></div>
+
+        <div class="chat-input" id="chatInput" style="display: none;">
+            <textarea placeholder="Write your response here..." id="messageInput" rows="2"></textarea>
+            <button onclick="sendSupportReply()">Send</button>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+        let currentUserType = null;
+        let ticketCounter = 1001;
+
+        const messagesData = {
+            client: [
+                { sender: 'user', text: 'لدي مشكلة في تسجيل الدخول.' }
+            ],
+            manager: [
+                { sender: 'user', text: 'لدي مشكلة في عرض السير الذاتية للعملاء' }
+            ]
+        };
+
+        function loadChat(userType) {
+            currentUserType = userType;
+
+            document.getElementById('chatTitle').textContent = `Request from: ${document.getElementById(userType).textContent}`;
+            document.getElementById('deleteChatBtn').style.visibility = 'visible';
+            document.getElementById('chatInput').style.display = 'flex';
+            document.getElementById('ticketInfo').style.display = 'block';
+
+            // توليد رقم عشوائي للتذكرة
+            document.getElementById('ticketID').textContent = ticketCounter++;
+            document.getElementById('ticketDate').textContent = new Date().toLocaleDateString('ar-EG');
+            document.getElementById('ticketStatus').textContent = "Status: Open";
+            document.getElementById('ticketStatus').style.color = "green";
+
+            document.querySelectorAll('.company-item').forEach(item => item.classList.remove('active'));
+            document.getElementById(userType).classList.add('active');
+
+            displayMessages();
+        }
+
+        function displayMessages() {
+            const container = document.getElementById('messages');
+            container.innerHTML = '';
+
+            if (!messagesData[currentUserType]) return;
+
+            messagesData[currentUserType].forEach(message => {
+                const msg = document.createElement('div');
+                msg.classList.add('message', message.sender === 'user' ? 'from-user' : 'from-support');
+
+                const sender = document.createElement('div');
+                sender.className = 'sender';
+                sender.textContent = message.sender === 'user' ? 'User' : 'Technical Support';
+
+                const text = document.createElement('div');
+                text.textContent = message.text;
+
+                const timestamp = document.createElement('div');
+                timestamp.className = 'timestamp';
+                timestamp.textContent = new Date().toLocaleString('ar-EG');
+
+                msg.appendChild(sender);
+                msg.appendChild(text);
+                msg.appendChild(timestamp);
+
+                container.appendChild(msg);
+                msg.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+
+        function sendSupportReply() {
+            const input = document.getElementById('messageInput');
+            const text = input.value.trim();
+            if (text === '' || !currentUserType) return;
+
+            const status = document.getElementById('ticketStatus').textContent;
+            if (status.includes('Closed')) {
+                swal("Ticket Closed", "You cannot send a message. This ticket is already closed.", "error");
+                return;
+            }
+
+            messagesData[currentUserType].push({ sender: 'support', text: text });
+            input.value = '';
+            displayMessages();
+        }
+
+        function deleteChat() {
+            if (!currentUserType) return;
+
+            swal({
+                title: "Are you sure?",
+                text: "This conversation will be deleted permanently.",
+                icon: "warning",
+                buttons: ["Cancel", "Delete"],
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    // Delete chat data
+                    delete messagesData[currentUserType];
+
+                    // Remove sidebar item
+                    const chatItem = document.getElementById(currentUserType);
+                    if (chatItem) {
+                        chatItem.remove();
+                    }
+
+                    // Clear UI
+                    document.getElementById('chatTitle').textContent = "Select a request to view its details";
+                    document.getElementById('messages').innerHTML = '';
+                    document.getElementById('chatInput').style.display = 'none';
+                    document.getElementById('ticketInfo').style.display = 'none';
+                    document.getElementById('deleteChatBtn').style.visibility = 'hidden';
+
+                    currentUserType = null;
+
+                    swal("Deleted!", "The conversation has been deleted.", "success");
+                }
+            });
+        }
+
+        function closeTicket() {
+            document.getElementById('ticketStatus').textContent = 'Status: Closed';
+            document.getElementById('ticketStatus').style.color = 'red';
+        }
+    </script>
+</body>
+
+</html>

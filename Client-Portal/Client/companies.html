@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <title>our client</title>''
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        height: 100vh;
+    }
+</style>
+
+<body>
+
+    <section side-nav>
+        <div class="navigation">
+            <ul>
+                <p class="code-break">USER NAME</p>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <span class=" title">My Account</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="courses.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="title">Courses</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="Jobs.html">
+                        <span class="icon">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                        </span>
+                        <span class="title">Jobs</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="communite.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Communite</span>
+                    </a>
+                </li>
+
+
+                <li class="list" style="background: #693B69;">
+                    <b></b>
+                    <b></b>
+                    <a href="companies.html" style="color: #A987A8;">
+                        <span class="icon">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </span>
+                        <span class="title">
+                            My conversations</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="settings.html">
+                        <span class="icon">
+                            <ion-icon name="Settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Log out</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="archive.html">
+                        <span class="icon">
+                            <ion-icon name="archive-outline"></ion-icon>
+                        </span>
+                        <span class="title">Archive</span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+
+
+        <div class="toggle">
+            <ion-icon name="menu-outline" class="open"></ion-icon>
+            <ion-icon name="close-outline" class="close"></ion-icon>
+        </div>
+    </section>
+    <!-- ----------------------------------------------communicate with companies----------------------------------------- -->
+    <div class="sidebar">
+        <div class="company-item" id="company1" onclick="loadChat('company1')">
+            company1
+        </div>
+        <div class="company-item" id="company2" onclick="loadChat('company2')">
+            company2
+        </div>
+        <div class="company-item" id="company3" onclick="loadChat('company3')">
+            company3
+        </div>
+        <div class="company-item" onclick="loadTicket(0, event)">#TK-001 - Login problem 🟢</div>
+        <div class="company-item" onclick="loadTicket(1, event)">#TK-002 - Service inquiry 🔴</div>
+
+    </div>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-container">
+
+        <div class="chat-header" id="chatHeader">
+            <span id="chatTitle">Select a conversation to view details</span>
+            <button id="deleteChatBtn" onclick="deleteChat()" title="Delete Chat">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+
+        </div>
+
+
+        <div class="messages" id="messages"></div>
+        <div class="chat-input" style="display: none;" id="chatInput">
+            <textarea placeholder="Write your message here..." id="messageInput"></textarea>
+            <button onclick="sendMessage()">send</button>
+        </div>
+
+
+
+
+    </div>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+        let currentCompany = null;
+        let currentType = null;
+        const messagesData = {
+            company1: [
+                { sender: 'user', text: 'مرحباً، أنا مهتم بالفرصة التي تقدمونها.' },
+                { sender: 'company', text: 'أهلاً بك، كيف يمكننا مساعدتك؟' }
+            ],
+            company2: [
+                { sender: 'user', text: 'أريد معرفة المزيد عن الخدمات.' },
+                { sender: 'company', text: 'نحن نقدم استشارات في العديد من المجالات.' }
+            ],
+            company3: [
+                { sender: 'user', text: 'هل يمكنني الحصول على تفاصيل الوظيفة؟' },
+                { sender: 'company', text: 'بالطبع، يرجى إرسال سيرتك الذاتية.' }
+            ],
+
+
+        };
+        const tickets = [
+            {
+                id: "TK-001",
+                subject: "Login problem",
+                status: "open",
+                date: "2025-05-04",
+                messages: [
+                    { sender: "user", text: "لا أستطيع تسجيل الدخول." },
+                    { sender: "support", text: "هل جربت إعادة تعيين كلمة المرور؟" }
+                ]
+            },
+            {
+                id: "TK-002",
+                subject: "Service inquiry",
+                status: "closed",
+                date: "2025-04-28",
+                messages: [
+                    { sender: "user", text: "ما هي الخدمات التي تقدمونها؟" },
+                    { sender: "support", text: "نقدم استشارات ودعم فني." }
+                ]
+            }
+        ];
+
+        function loadChat(chatKey) {
+            currentChat = chatKey;
+            currentType = 'chat';
+
+            const chatData = messagesData[chatKey] || [];
+
+            document.getElementById('chatTitle').textContent = chatKey;
+            document.getElementById('deleteChatBtn').style.visibility = 'visible';
+            document.getElementById('chatInput').style.display = 'flex';
+
+            document.querySelectorAll('.company-item').forEach(item => item.classList.remove('active'));
+            event.target.classList.add('active');
+
+            displayMessages();
+        }
+
+
+
+        function loadTicket(index, event) {
+            currentContext = index;
+            currentType = 'ticket';
+
+            const ticket = tickets[index];
+            document.getElementById('chatTitle').innerHTML = `
+        <div><strong>Ticket #${ticket.id}</strong> - ${ticket.subject}</div>
+        <div class="ticket-status">${ticket.status === 'closed' ? '🔴 closed' : '🟢 open'} - ${ticket.date}</div>
+    `;
+            document.getElementById('chatInput').style.display = ticket.status === 'open' ? 'flex' : 'none';
+            document.getElementById('deleteChatBtn').style.visibility = 'visible';
+
+            // إزالة التفعيل من جميع العناصر
+            document.querySelectorAll('.company-item').forEach(item => item.classList.remove('active'));
+
+            // تفعيل العنصر الحالي
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+
+            displayMessages(ticket.messages);
+        }
+
+
+        function displayMessages(messages = null) {
+            const container = document.getElementById('messages');
+            container.innerHTML = '';
+
+            const chatMessages = messages || (currentType === 'ticket' ? tickets[currentContext].messages : messagesData[currentChat]);
+
+            if (!chatMessages) return;
+
+            chatMessages.forEach((message) => {
+                const msg = document.createElement('div');
+                msg.classList.add('message', message.sender === 'user' ? 'from-user' : (message.sender === 'support' ? 'from-support' : 'from-company'));
+
+                const text = document.createElement('div');
+                text.textContent = message.text;
+
+                const timestamp = document.createElement('div');
+                timestamp.className = 'timestamp';
+                timestamp.textContent = new Date().toLocaleString('ar-EG');
+
+                msg.appendChild(text);
+                msg.appendChild(timestamp);
+                container.appendChild(msg);
+            });
+
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const text = input.value.trim();
+            if (text === '') return;
+
+            if (currentType === 'ticket') {
+                const ticket = tickets[currentContext];
+                if (ticket.status === 'open') {
+                    ticket.messages.push({ sender: 'user', text });
+                }
+            } else if (currentChat) {
+                messagesData[currentChat].push({ sender: 'user', text });
+            }
+
+            input.value = '';
+            displayMessages();
+        }
+
+
+        function deleteChat() {
+            if (currentType === 'ticket') {
+                const ticket = tickets[currentContext];
+                swal({
+                    title: "Are you sure?",
+                    text: `Ticket #${ticket.id} will be permanently deleted.`,
+                    icon: "warning",
+                    buttons: ["Cancel", "Delete"],
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        // Remove the ticket from the array
+                        tickets.splice(currentContext, 1);
+
+                        // Remove from sidebar
+                        const sidebarItems = document.querySelectorAll('.company-item');
+                        sidebarItems.forEach((item, index) => {
+                            if (item.textContent.includes(ticket.id)) {
+                                item.remove();
+                            }
+                        });
+
+                        // Reset UI
+                        currentContext = null;
+                        currentType = null;
+                        document.getElementById('messages').innerHTML = '';
+                        document.getElementById('chatTitle').textContent = 'Select a conversation to view details';
+                        document.getElementById('chatInput').style.display = 'none';
+                        document.getElementById('deleteChatBtn').style.visibility = 'hidden';
+
+                        swal("Deleted!", "The ticket conversation has been deleted.", "success");
+                    }
+                });
+
+            } else if (currentChat && currentType === 'chat') {
+                swal({
+                    title: "Are you sure?",
+                    text: "This chat will be permanently deleted.",
+                    icon: "warning",
+                    buttons: ["Cancel", "Delete"],
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        // Remove from messages data
+                        delete messagesData[currentChat];
+
+                        // Remove from sidebar
+                        const chatElement = document.getElementById(currentChat);
+                        if (chatElement) {
+                            chatElement.remove();
+                        }
+
+                        // Clear UI
+                        currentChat = null;
+                        currentType = null;
+                        document.getElementById('messages').innerHTML = '';
+                        document.getElementById('chatTitle').textContent = 'Select a conversation to view details';
+                        document.getElementById('chatInput').style.display = 'none';
+                        document.getElementById('deleteChatBtn').style.visibility = 'hidden';
+
+                        swal("Deleted!", "The chat has been deleted.", "success");
+                    }
+                });
+            }
+        }
+
+    </script>
+
+    <!-- --------------------------------------end of communite with companies---------------------------- -->
+
+
+    <!-- Icon Link-->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        let menuToggle = document.querySelector('.toggle')
+        let Navigation = document.querySelector('.navigation')
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle('active')
+            Navigation.classList.toggle('active')
+        }
+
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                let j = 0;
+                while (j < list.length) {
+                    list[j++].className = 'list'
+                }
+                list[i].className = 'list active'
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".open").click(function () {
+                $(".code-break").css('display', 'block');
+
+            });
+            $(".close").click(function () {
+                $(".code-break").css('display', 'none');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

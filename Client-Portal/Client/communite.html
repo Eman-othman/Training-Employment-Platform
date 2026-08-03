@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>our client</title>''
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        height: 100vh;
+    }
+</style>
+
+
+<body>
+
+    <section side-nav>
+        <div class="navigation">
+            <ul>
+                <p class="code-break">USER NAME</p>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <span class=" title">My Account</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="courses.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="title">Courses</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="Jobs.html">
+                        <span class="icon">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                        </span>
+                        <span class="title">Jobs</span>
+                    </a>
+                </li>
+
+                <li class="list" style="background: #693B69;">
+                    <b></b>
+                    <b></b>
+                    <a href="communite.html" style="color: #A987A8;">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Communite</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="companies.html">
+                        <span class="icon">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </span>
+                        <span class="title">
+                            My conversations</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="settings.html">
+                        <span class="icon">
+                            <ion-icon name="Settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Log out</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="archive.html">
+                        <span class="icon">
+                            <ion-icon name="archive-outline"></ion-icon> <!-- أيقونة الأرشيف -->
+                        </span>
+                        <span class="title">Archive</span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+
+
+        <div class="toggle">
+            <ion-icon name="menu-outline" class="open"></ion-icon>
+            <ion-icon name="close-outline" class="close"></ion-icon>
+        </div>
+
+    </section>
+
+    <!-- ------------------------start communite section-------------------------- -->
+    <div class="sidebar">
+        <h3>Groups you have joined</h3>
+        <ul id="joinedGroupsList"></ul>
+    </div>
+
+    <div class="chat-container">
+
+        <div class="chat-header">
+            <div class="left-header">
+                <button id="backToGroupsBtn" onclick="backToGroups()" title="Go back to groups" style="display: none;">⬅
+                    Back</button>
+                <span id="chatTitle">Available Groups</span>
+            </div>
+            <span id="leaveGroupIcon" onclick="confirmLeaveGroup()" title="leave group"
+                style="display: none; cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="24" width="24" viewBox="0 0 24 24">
+                    <path
+                        d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.1 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
+                </svg>
+            </span>
+        </div>
+
+
+        <div class="group-grid" id="groupGrid"></div>
+
+        <div class="chat-box" id="chatBox" style="display: none;">
+            <div class="messages" id="messagesContainer"></div>
+            <div class="message-input" id="messageInputContainer">
+                <input type="text" id="messageInput" placeholder="write your message here..." />
+                <button class="send-btn" onclick="sendMessage()">send</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+        const groups = [
+            {
+                name: "تطوير البرمجيات",
+                icon: "https://cdn-icons-png.flaticon.com/512/1055/1055687.png",
+                description: "مجموعة لمطوري البرامج وأحدث الأدوات.",
+                joined: false,
+                messages: [
+                    { text: "مرحبا بالمطورين!", likes: 1, comments: ["أهلاً بك!"], sender: "محمد" },
+                    { text: "من يستخدم React؟", likes: 3, comments: [], sender: "سارة" }
+                ]
+            },
+            {
+                name: "التسويق الرقمي",
+                icon: "https://cdn-icons-png.flaticon.com/512/906/906175.png",
+                description: "استراتيجيات وتقنيات التسويق الإلكتروني.",
+                joined: false,
+                messages: []
+            },
+
+            {
+                name: "التصميم الجرافيكي",
+                icon: "https://cdn-icons-png.flaticon.com/512/1139/1139994.png",
+                description: "عرض الأعمال الفنية وتقنيات التصميم.",
+                joined: false,
+                messages: []
+            }
+        ];
+
+        const groupGrid = document.getElementById("groupGrid");
+        const joinedGroupsList = document.getElementById("joinedGroupsList");
+        let currentGroupIndex = null;
+
+        function renderGroups() {
+            groupGrid.innerHTML = "";
+            groups.forEach((group, index) => {
+                const card = document.createElement("div");
+                card.className = "group-card";
+                card.innerHTML = `
+              <img src="${group.icon}" alt="${group.name}" class="group-icon-img" />
+              <h4>${group.name}</h4>
+              <p>${group.description}</p>
+              <button class="join-btn" onclick="joinGroup(${index})" ${group.joined ? "disabled" : ""}>
+                ${group.joined ? "Joined " : " join group"}
+              </button>
+            `;
+                groupGrid.appendChild(card);
+            });
+        }
+
+        function joinGroup(index) {
+            groups[index].joined = true;
+            updateSidebar();
+            renderGroups();
+        }
+
+        function updateSidebar() {
+            joinedGroupsList.innerHTML = "";
+            groups.filter(g => g.joined).forEach((group, i) => {
+                const li = document.createElement("li");
+                li.className = "group-item";
+                li.id = "group" + i;
+                li.textContent = group.name;
+                li.onclick = () => {
+                    openGroupChat(i);
+                    document.querySelectorAll(".group-item").forEach(item => item.classList.remove("active"));
+                    li.classList.add("active");
+                };
+                joinedGroupsList.appendChild(li);
+            });
+        }
+
+
+        function openGroupChat(index) {
+            if (!groups[index].joined) return;
+
+            // إظهار مكونات الشات
+            document.getElementById("groupGrid").style.display = "none";
+            document.getElementById("chatBox").style.display = "flex";
+            document.getElementById("leaveGroupIcon").style.display = "inline-block";
+            document.getElementById("backToGroupsBtn").style.display = "inline-block";
+
+            // تحديث العنوان والمجموعة الحالية
+            currentGroupIndex = index;
+            document.getElementById("chatTitle").textContent = groups[index].name;
+
+            renderMessages();
+        }
+
+
+
+        function renderMessages() {
+            const container = document.getElementById("messagesContainer");
+            const group = groups[currentGroupIndex];
+
+            // إظهار واجهة المحادثة
+            document.getElementById("chatBox").style.display = "flex";
+
+            // تحديث العنوان
+            document.getElementById("chatTitle").textContent = group.name;
+
+            // تنظيف الرسائل السابقة
+            container.innerHTML = "";
+
+            // التحقق من وجود رسائل
+            if (group.messages.length === 0) {
+                container.innerHTML = `<p style="text-align:center; color:#888;">There are no messages yet.</p>`;
+                return;
+            }
+
+            // عرض الرسائل
+            group.messages.forEach((msg, msgIndex) => {
+                const msgDiv = document.createElement("div");
+                msgDiv.className = "message " + (msg.sender === "أنت" ? "from-user" : "from-other");
+                msgDiv.innerHTML = `
+            <strong>${msg.sender}</strong>
+            <p>${msg.text}</p>
+            <small onclick="likeMessage(${msgIndex})">❤️ ${msg.likes}</small>
+            <button class="reply-btn" onclick="replyTo('${msg.sender}')">↩️ رد</button>
+        `;
+                container.appendChild(msgDiv);
+            });
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("messageInput");
+            const text = input.value.trim();
+            if (text) {
+                groups[currentGroupIndex].messages.push({ text, likes: 0, comments: [], sender: "أنت" });
+                input.value = "";
+                renderMessages();
+            }
+        }
+
+        function likeMessage(index) {
+            groups[currentGroupIndex].messages[index].likes += 1;
+            renderMessages();
+        }
+
+        function replyTo(username) {
+            const input = document.getElementById("messageInput");
+            input.value = `@${username} `;
+            input.focus();
+        }
+
+        function confirmLeaveGroup() {
+            const groupName = groups[currentGroupIndex]?.name || "the group";
+            swal({
+                title: `Are you sure you want to leave "${groupName}"?`,
+                text: "You will no longer be able to see the chat messages.",
+                icon: "warning",
+                buttons: ["Cancel", "Yes, leave group"],
+                dangerMode: true,
+            }).then((willLeave) => {
+                if (willLeave) {
+                    leaveGroup();
+                    swal("You have successfully left the group.", {
+                        icon: "success",
+                    });
+                }
+            });
+        }
+
+
+
+        function leaveGroup() {
+            if (currentGroupIndex !== null) {
+                groups[currentGroupIndex].joined = false;
+                currentGroupIndex = null;
+                updateSidebar();
+                renderGroups();
+                document.getElementById("chatTitle").textContent = "Available Groups";
+                document.getElementById("chatBox").style.display = "none";
+                document.getElementById("groupGrid").style.display = "grid";
+                document.getElementById("leaveGroupIcon").style.display = "none";
+                document.getElementById("backToGroupsBtn").style.display = "none";
+            }
+        }
+
+        function backToGroups() {
+            document.getElementById("chatBox").style.display = "none";
+            document.getElementById("groupGrid").style.display = "grid";
+            document.getElementById("leaveGroupIcon").style.display = "none";
+            document.getElementById("backToGroupsBtn").style.display = "none";
+            document.getElementById("chatTitle").textContent = "Available Groups";
+            currentGroupIndex = null;
+        }
+
+        renderGroups();
+    </script>
+
+    <!-- ------------------------end communite section-------------------------- -->
+
+
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--JavaScript Start-->
+
+
+    <script type="text/javascript">
+        let menuToggle = document.querySelector('.toggle')
+        let Navigation = document.querySelector('.navigation')
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle('active')
+            Navigation.classList.toggle('active')
+        }
+
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                let j = 0;
+                while (j < list.length) {
+                    list[j++].className = 'list'
+                }
+                list[i].className = 'list active'
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".open").click(function () {
+                $(".code-break").css('display', 'block');
+
+            });
+            $(".close").click(function () {
+                $(".code-break").css('display', 'none');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

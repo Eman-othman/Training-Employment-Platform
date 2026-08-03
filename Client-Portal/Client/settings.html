@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="more-details.css">
+    <title>our client</title>''
+</head>
+
+<body>
+
+    <section side-nav>
+        <div class="navigation">
+            <ul>
+                <p class="code-break">USER NAME</p>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <span class=" title">My Account</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="courses.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="title">Courses</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="Jobs.html">
+                        <span class="icon">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                        </span>
+                        <span class="title">Jobs</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="communite.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Communite</span>
+                    </a>
+                </li>
+
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="companies.html">
+                        <span class="icon">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </span>
+                        <span class="title">Companies</span>
+                    </a>
+                </li>
+                <li class="list" style="background: #693B69;">
+                    <b></b>
+                    <b></b>
+                    <a href="settings.html" style="color: #A987A8;">
+                        <span class="icon">
+                            <ion-icon name="Settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Log out</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="archive.html">
+                        <span class="icon">
+                            <ion-icon name="archive-outline"></ion-icon> <!-- أيقونة الأرشيف -->
+                        </span>
+                        <span class="title">Archive</span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+
+
+        <div class="toggle">
+            <ion-icon name="menu-outline" class="open"></ion-icon>
+            <ion-icon name="close-outline" class="close"></ion-icon>
+        </div>
+    </section>
+
+    <section class="jobs-list-container">
+        <div class="jobs">
+            <div class="job">
+                <!-- <img src="" alt=""> -->
+                <h5 class="job-title">SETTINGS</h5>
+                <hr>
+                <p class="job-title">FULL NAME</p>
+                <div class="details">
+                    Full name here
+                </div>
+                <hr>
+                <p class="job-title">Gender</p>
+                <div class="details">
+                    Gender here
+                </div>
+                <hr>
+
+
+                <p class="job-title">AGE</p>
+                <div class="details">
+                    age here
+
+                </div>
+                <hr>
+
+                <p class="job-title">Email</p>
+                <div class="details">
+                    Email here
+                </div>
+                <p class="job-title">PASSWORD</p>
+                <input class="details" type="password" value="ooooooS">
+
+            </div>
+
+        </div>
+        <a href="edit.html" class="details-btn">Edit</a>
+        <form method="POST" action="do-something.php" onsubmit="return submitForm(this);">
+
+            <button class="details-btn" style="margin-left:0%;">Delete account</button>
+        </form>
+        </div>
+    </section>
+    <!-- <section class="home">
+        <div class="home-rectangle"></div>
+        <div class="home-container">
+            <div class="home-perfil">
+                <div class="perfil-content">
+                    <img src="./img/pngegg.png" alt="" class="perfil-img">
+                </div>
+            </div>
+
+            <div class="home-content">
+
+            </div>
+            <a href="" class="btn"></a>
+        </div>
+    </section> -->
+
+    <!-- Icon Link-->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--JavaScript Start-->
+
+
+    <script type="text/javascript">
+        let menuToggle = document.querySelector('.toggle')
+        let Navigation = document.querySelector('.navigation')
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle('active')
+            Navigation.classList.toggle('active')
+        }
+
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                let j = 0;
+                while (j < list.length) {
+                    list[j++].className = 'list'
+                }
+                list[i].className = 'list active'
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".open").click(function () {
+                $(".code-break").css('display', 'block');
+
+            });
+            $(".close").click(function () {
+                $(".code-break").css('display', 'none');
+            });
+        });
+    </script>
+
+
+    <script src="sweetalert.min.js"></script>
+    <script>
+        function submitForm(form) {
+            swal({
+                title: "Are you sure?",
+                text: "Your account will be delleted",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then(function (isOkay) {
+                    if (isOkay) {
+                        form.submit();
+                    }
+                });
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>

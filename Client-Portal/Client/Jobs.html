@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css" />
+
+    <title>our client</title>''
+</head>
+
+<body>
+
+    <section side-nav>
+        <div class="navigation">
+            <ul>
+                <p class="code-break">USER NAME</p>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <span class=" title">My Account</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="courses.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="title">Courses</span>
+                    </a>
+                </li>
+                <li class="list" style="background: #693B69;">
+                    <b></b>
+                    <b></b>
+                    <a href="myRequests.html" style="color: #A987A8;">
+                        <span class="icon">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                        </span>
+                        <span class="title">Jobs</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="communite.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Communite</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="companies.html">
+                        <span class="icon">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </span>
+                        <span class="title">
+                            My conversations</span>
+                    </a>
+                </li>
+
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="settings.html">
+                        <span class="icon">
+                            <ion-icon name="Settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Log out</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="archive.html">
+                        <span class="icon">
+                            <ion-icon name="archive-outline"></ion-icon> <!-- أيقونة الأرشيف -->
+                        </span>
+                        <span class="title">Archive</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="toggle">
+            <ion-icon name="menu-outline" class="open"></ion-icon>
+            <ion-icon name="close-outline" class="close"></ion-icon>
+        </div>
+    </section>
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--JavaScript Start-->
+
+
+    <script type="text/javascript">
+        let menuToggle = document.querySelector('.toggle')
+        let Navigation = document.querySelector('.navigation')
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle('active')
+            Navigation.classList.toggle('active')
+        }
+
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                let j = 0;
+                while (j < list.length) {
+                    list[j++].className = 'list'
+                }
+                list[i].className = 'list active'
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".open").click(function () {
+                $(".code-break").css('display', 'block');
+
+            });
+            $(".close").click(function () {
+                $(".code-break").css('display', 'none');
+            });
+        });
+    </script>
+
+    <!-- ---------------------------------------------Jobs SECTION----------------------------------------------------------- -->
+
+
+    <section class="jobs-list-container">
+        <h2> My Jobs Requests</h2>
+        <div class="search" id="search">
+            <input type="search" placeholder="Search A Course...">
+
+            <a href="#"><img src="./img/searchIcon.png" alt="" height="20px " width="20px">
+            </a>
+        </div>
+        <div class="jobs">
+
+
+            <div class="job">
+                <h3 class="job-title">Job name here</h3>
+                <div class="details">
+                    Job details here
+                </div>
+                <a href="jobs-details.html" class="details-btn">More Details</a>
+                <form method="POST" action="do-something.php" onsubmit="return submitForm(this);">
+
+                    <button class="details-btn">Cancel Request</button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+    </section>
+
+    <script src="sweetalert.min.js"></script>
+    <script>
+        function submitForm(form) {
+            swal({
+                title: "Are you sure?",
+                text: "The request for this job will be cancelled",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then(function (isOkay) {
+                    if (isOkay) {
+                        form.submit();
+                    }
+                });
+            return false;
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="more-details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/a;;.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>our client</title>''
+
+
+
+</head>
+
+<style>
+    input[type="file"] {
+        display: none;
+    }
+
+
+    .jobs-list-container {
+        width: 50%;
+        margin: 40px auto;
+        font-family: "Rubik", sans-serif;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: var(--padding);
+        position: static;
+        transform: none;
+    }
+
+    .content .details-btn {
+        text-decoration: none;
+        border: 1px solid var(--color-second);
+        color: var(--color-white);
+        padding: 10px 30px;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 20px;
+        transition: all 400ms ease;
+        display: inline-block;
+        margin: 1.7rem;
+    }
+
+    .details-btn {
+        text-decoration: none;
+        border: 1px solid var(--color-second) !important;
+        color: #000;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 20px;
+        transition: all 400ms ease;
+        display: inline-block;
+    }
+
+    .details-btn:hover {
+        background: var(--color-success);
+        color: #fff;
+    }
+
+    .upload-btn {
+        display: block;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .delete-btn {
+        display: block;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<body>
+
+
+    <section side-nav>
+        <div class="navigation">
+            <ul>
+                <p class="code-break">USER NAME</p>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li class="list" style="background: #693B69;">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html" style="color: #A987A8;">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <span class=" title">My Account</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="courses.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="title">Courses</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="Jobs.html">
+                        <span class="icon">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                        </span>
+                        <span class="title">Jobs</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="communite.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Communite</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="companies.html">
+                        <span class="icon">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </span>
+                        <span class="title">
+                            My conversations</span>
+                    </a>
+                </li>
+
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="settings.html">
+                        <span class="icon">
+                            <ion-icon name="Settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Log out</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="archive.html">
+                        <span class="icon">
+                            <ion-icon name="archive-outline"></ion-icon>
+                        </span>
+                        <span class="title">Archive</span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+
+
+        <div class="toggle">
+            <ion-icon name="menu-outline" class="open"></ion-icon>
+            <ion-icon name="close-outline" class="close"></ion-icon>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="jobs-list-container">
+        <h2 style="color: #693B69; margin-left: -20%;">My Account</h2>
+        <!-- User Image -->
+        <div class="image">
+            <img src="img/pngegg.png" alt="User Image">
+        </div>
+
+        <!-- User Info -->
+        <div style="text-align: center; margin-top: 10px;">
+            <h3 style="margin-bottom: 5px;">User Name</h3>
+            <p style="margin-top: 0; color: gray;">UserName.@gmail.com</p>
+        </div>
+
+        <!-- CV Status -->
+        <div style="text-align: center; margin-top: 20px;">
+            <p id="cvStatus" class="cv-status warning">
+                <i class="fa fa-exclamation-triangle"></i> No CV uploaded yet.
+            </p>
+        </div>
+        <div class="jobs"></div>
+
+        <!-- Upload Form -->
+
+        <!-- Upload CV Trigger -->
+        <button type="button" class="details-btn upload-btn" onclick="showCVModal()">
+            Upload CV <i class="fa fa-upload"></i>
+        </button>
+
+        <!-- Hidden Upload Form -->
+        <form id="uploadCVForm" method="POST" enctype="multipart/form-data" style="display: none;">
+            <input type="file" name="cv_file" id="cvInput" accept=".pdf,.doc,.docx" onchange="handleFileChange(this)"
+                required>
+        </form>
+
+        <!-- Delete Form -->
+        <form method="POST" action="do-something.php" onsubmit="return submitForm(this);">
+            <button type="submit" class="details-btn delete-btn">
+                Delete CV <i class="fa fa-trash"></i>
+            </button>
+        </form>
+
+        <!-- Modal -->
+        <div id="cvModal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <h3>Did you have a CV?</h3>
+                <p>In case you don’t have one, we can provide you with a range of CV templates to create your own.</p>
+                <div class="modal-actions">
+                    <a href="../../FrontEnd(jonior-pro)/cv-temp.html" class="details-btn">Use CV Template</a>
+                    <button onclick="triggerCVUpload()" class="details-btn">I Have One</button>
+                </div>
+                <span class="modal-close" onclick="closeCVModal()">&times;</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Accepted Jobs Section -->
+    <br>
+
+
+    <section class="jobs-list-container">
+        <h2 style="color: #693B69; margin-left: -20%;">Accepted Jobs & Interviews <i class="fa fa-briefcase"></i> </h2>
+
+        <section class="accepted-jobs">
+
+            <div class="job-grid">
+                <div class="job-card">
+                    <h4 class="job-title">Frontend Developer at XYZ Tech</h4>
+                    <p class="job-info">
+                        <i class="fa fa-calendar"></i> Interview Date: <strong>2025-05-15</strong><br>
+                        <i class="fa fa-clock"></i> Time: <strong>10:00 AM</strong>
+                    </p>
+                </div>
+
+                <div class="job-card">
+                    <h4 class="job-title">UI/UX Designer at Creative Studio</h4>
+                    <p class="job-info">
+                        <i class="fa fa-calendar"></i> Interview Date: <strong>2025-05-20</strong><br>
+                        <i class="fa fa-clock"></i> Time: <strong>1:30 PM</strong>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </section>
+
+    <!-- rejected Jobs Section -->
+
+    <section class="jobs-list-container">
+        <h2 style="color: #693B69; margin-left: -20%;">
+            Rejected Applications <i class="fa fa-times-circle"></i>
+        </h2>
+
+        <section class="rejected-jobs">
+            <div class="job-grid">
+                <div class="job-card rejected">
+                    <h4 class="job-title">Backend Developer at ABC Corp</h4>
+                    <p class="job-info">
+                        <i class="fa fa-calendar-times"></i>
+                        Rejection Date: <strong>2025-05-01</strong><br>
+                    </p>
+                </div>
+
+                <div class="job-card rejected">
+                    <h4 class="job-title">Quality Engineer at BetaSoft</h4>
+                    <p class="job-info">
+                        <i class="fa fa-calendar-times"></i>
+                        Rejection Date: <strong>2025-04-25</strong><br>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+
+
+
+    <!-- SweetAlert & Font Awesome -->
+    <script src="sweetalert.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- JS Logic -->
+
+    <script>
+        function showCVModal() {
+            document.getElementById('cvModal').style.display = 'flex';
+        }
+
+        function closeCVModal() {
+            document.getElementById('cvModal').style.display = 'none';
+        }
+
+        function triggerCVUpload() {
+            closeCVModal();
+            document.getElementById('cvInput').click(); // يفتح نافذة اختيار الملف
+        }
+
+
+        function submitForm(form) {
+            swal({
+                title: "Are you sure?",
+                text: "Your CV will be deleted!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then(function (isOkay) {
+                if (isOkay) {
+                    form.submit();
+                }
+            });
+            return false;
+        }
+
+        function handleFileChange(input) {
+            const file = input.files[0];
+            if (file) {
+                const fileName = file.name;
+                const uploadDate = new Date().toLocaleDateString('en-GB');
+                const status = document.getElementById("cvStatus");
+
+                status.className = "cv-status success";
+                status.innerHTML = `
+                <i class="fa fa-file-alt"></i> <strong>${fileName}</strong><br>
+                <i class="fa fa-clock"></i> Last uploaded: ${uploadDate}
+            `;
+            }
+        }
+    </script>
+
+
+    <!-- <div class="image">
+        <img src="img/pngegg.png" alt="">
+
+
+    </div>
+
+    <section class="jobs-list-container">
+        <div class="jobs">
+
+
+        </div>
+
+        <a href="CV-alert.html" class="details-btn" style=" margin-left: 30%;
+        margin-right: 30%;">Upload CV</a>
+
+        <form method="POST" action="do-something.php" onsubmit="return submitForm(this);">
+
+            <button class="details-btn" style="margin-left: 30%;
+            margin-right: 30%;">Delete CV</button>
+        </form>
+        </div>
+    </section> -->
+
+
+
+
+    <!-- Icon Link-->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--JavaScript Start-->
+
+
+    <script type="text/javascript">
+        let menuToggle = document.querySelector('.toggle')
+        let Navigation = document.querySelector('.navigation')
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle('active')
+            Navigation.classList.toggle('active')
+        }
+
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                let j = 0;
+                while (j < list.length) {
+                    list[j++].className = 'list'
+                }
+                list[i].className = 'list active'
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".open").click(function () {
+                $(".code-break").css('display', 'block');
+
+            });
+            $(".close").click(function () {
+                $(".code-break").css('display', 'none');
+            });
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>our client</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+</head>
+
+<body>
+
+    <section side-nav>
+        <div class="navigation">
+            <ul>
+                <p class="code-break">USER NAME</p>
+                <li class="list" style="background: #693B69;">
+                    <b></b>
+                    <b></b>
+                    <a href="index.html">
+                        <span class="icon" style="color: #A987A8;">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title" style="color: #A987A8;">Home</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <span class="title">My Account</span>
+                    </a>
+                </li>
+
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="courses.html">
+                        <span class="icon">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </span>
+                        <span class="title">Courses</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="Jobs.html">
+                        <span class="icon">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                        </span>
+                        <span class="title">Jobs</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="communite.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Communite</span>
+                    </a>
+                </li>
+
+
+
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="companies.html">
+                        <span class="icon">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </span>
+                        <span class="title">
+                            My conversations</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="settings.html">
+                        <span class="icon">
+                            <ion-icon name="Settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="account.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Log out</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <b></b>
+                    <b></b>
+                    <a href="archive.html">
+                        <span class="icon">
+                            <ion-icon name="archive-outline"></ion-icon> <!-- أيقونة الأرشيف -->
+                        </span>
+                        <span class="title">Archive</span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+
+
+        <div class="toggle">
+            <ion-icon name="menu-outline" class="open"></ion-icon>
+            <ion-icon name="close-outline" class="close"></ion-icon>
+        </div>
+    </section>
+    <!-- Icon Link-->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--JavaScript Start-->
+
+
+    <script type="text/javascript">
+        let menuToggle = document.querySelector('.toggle')
+        let Navigation = document.querySelector('.navigation')
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle('active')
+            Navigation.classList.toggle('active')
+        }
+
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                let j = 0;
+                while (j < list.length) {
+                    list[j++].className = 'list'
+                }
+                list[i].className = 'list active'
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".open").click(function () {
+                $(".code-break").css('display', 'block');
+
+            });
+            $(".close").click(function () {
+                $(".code-break").css('display', 'none');
+            });
+        });
+    </script>
+
+    <!-- _______________HOME SECTION_______________  -->
+
+
+    <section class="home">
+
+
+
+
+        <div class="content ">
+            <div class="hero-content ">
+
+                <h1> Find The <span>Perfect Job </span> That You Deserved
+                </h1>
+                <p>We Help You To Get The Best Job And
+                    Find A Talent</p>
+                <div class="search" id="search">
+                    <input type="search" placeholder="Search A Job...">
+
+                    <a href="#"><img src="./img/searchIcon.png" alt="" height="20px " width="20px">
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- _______________END HOME SECTION_______________  -->
+
+
+
+
+
+    <!-- _______________JOB LIST SECTION_______________  -->
+
+
+    <section class="jobs-list-container">
+        <h2> Job Listing</h2>
+        <div class="jobs">
+            <div class="job">
+                <!-- <img src="" alt=""> -->
+                <h3 class="job-title">Job title here</h3>
+                <div class="details">
+                    job details here
+                </div>
+                <a href="jobs-details.html" class="details-btn">More Details</a>
+                <button class="details-btn">Apply Now</button>
+
+            </div>
+
+            <div class="job">
+                <!-- <img src="" alt=""> -->
+                <h3 class="job-title">Job title here</h3>
+                <div class="details">
+                    job details here
+                </div>
+                <a href="jobs-details.html" class="details-btn">More Details</a>
+                <button class="details-btn">Apply Now</button>
+
+
+
+            </div>
+
+            <div class="job">
+                <!-- <img src="" alt=""> -->
+                <h3 class="job-title">Job title here</h3>
+                <div class="details">
+                    job details here
+                </div>
+                <a href="jobs-details.html" class="details-btn">More Details</a>
+                <button class="details-btn">Apply Now</button>
+
+
+            </div>
+
+            <div class="job">
+                <!-- <img src="" alt=""> -->
+                <h3 class="job-title">Job title here</h3>
+                <div class="details">
+                    job details here
+                </div>
+                <a href="jobs-details.html" class="details-btn">More Details</a>
+                <button class="details-btn">Apply Now</button>
+
+
+            </div>
+
+            <div class="job">
+                <!-- <img src="" alt=""> -->
+                <h3 class="job-title">Job title here</h3>
+                <div class="details">
+                    job details here
+                </div>
+                <a href="jobs-details.html" class="details-btn">More Details</a>
+                <button class="details-btn">Apply Now</button>
+
+
+            </div>
+            <div class="job">
+                <!-- <img src=""a alt=""> -->
+                <h3 class="job-title">Job title here</h3>
+                <div class="details">
+                    job details here
+                </div>
+                <a href="jobs-details.html" class="details-btn">More Details</a>
+                <button class="details-btn">Apply Now</button>
+
+
+            </div>
+
+
+        </div>
+        <a href="job-list.html" class="details-btn">Browse More Jobs</a>
+
+
+
+
+        <!-- _______________END JOB LIST SECTION_______________  -->
+
+
+    </section>
+
+    <!-- _______________CV SECTION_______________  -->
+
+
+    <section class="cv-template">
+
+
+        <div class="container-images">
+            <h2> Create your own CV</h2>
+
+            <img src="./img/cvimg.png" alt="">
+        </div>
+
+        <div class="container-text">
+
+            <h1>Professional
+                <span>CV </span>
+
+                is your ticket to the dream job
+            </h1>
+            <p>to start searching for jobs , ypu can attend job fairs online or in person , use job boards and
+                career
+                websites or reach out directly to recruiters in a targeted company to boaden your network</p>
+
+            <a href="cv-temp.html" class="details-btn">Use CV Template</a>
+        </div>
+
+
+
+
+
+    </section>
+    <!-- ---------------------------------------------COURSE SECTION---------------------------------------------------------- -->
+
+
+
+    <section class="jobs-list-container">
+        <h2> Available courses</h2>
+
+        <div class="search" id="search">
+            <input type="search" placeholder="Search A Course...">
+
+            <a href="#"><img src="./img/searchIcon.png" alt="" height="20px " width="20px">
+            </a>
+        </div>
+
+        <div class="jobs">
+
+
+
+            <div class="job">
+
+                <!-- <img src="" alt=""> -->
+                <h3 class="job-title">Course name here</h3>
+                <div class="details">
+                    course details here
+                </div>
+                <a href="course-details.html" class="details-btn">More Details</a>
+
+                <form method="POST" action="do-something.php" onsubmit="return submitForm(this);">
+
+                    <button class="details-btn">Regist Now </button>
+                </form>
+
+            </div>
+
+            <div class="job">
+                <!-- <img src="" alt=""> -->
+                <h3 class="job-title">Course name here</h3>
+                <div class="details">
+                    course details here
+                </div>
+                <a href="course-details.html" class="details-btn">More Details</a>
+                <form method="POST" action="do-something.php" onsubmit="return submitForm(this);">
+
+                    <button class="details-btn">Regist Now </button>
+                </form>
+            </div>
+
+            <div class="job">
+                <!-- <img src="" alt=""> -->
+                <h3 class="job-title">Course name here</h3>
+                <div class="details">
+                    course details here
+                </div>
+                <a href="course-details.html" class="details-btn">More Details</a>
+                <form method="POST" action="do-something.php" onsubmit="return submitForm(this);">
+
+                    <button class="details-btn">Regist Now </button>
+                </form>
+            </div>
+
+
+        </div>
+        <a href="job-list.html" class="details-btn">Browse More courses</a>
+
+
+    </section>
+
+
+
+
+    <!-- _______________COMPANYS LIST SECTION_______________  -->
+
+
+
+
+    <section class="company-list">
+        <div class="container swiper">
+            <h2 style="padding-left: 230px;">Our Companys </h2>
+            <div class="card-wrapper">
+                <!-- <h2> Our Companys</h2> -->
+
+                <!-- Card slides container -->
+                <ul class="card-list swiper-wrapper">
+                    <li class="card-item swiper-slide">
+                        <div class="card-link">
+                            <img src="./img/no result_6511543.png" alt="Card Image" class="card-image">
+                            <p class="badge badge-designer">company name</p>
+                            <h2 class="card-title">general description of company here</h2>
+
+                            <h2 class="card-title"> location of company here</h2>
+
+
+                        </div>
+                    </li>
+                    <li class="card-item swiper-slide">
+                        <div class="card-link">
+                            <img src="./img/no result_6511543.png" alt="Card Image" class="card-image">
+
+                            <p class="badge badge-developer">company name</p>
+                            <h2 class="card-title">general description of company here</h2>
+                            <h2 class="card-title"> location of company here</h2>
+
+
+                        </div>
+                    </li>
+                    <li class="card-item swiper-slide">
+                        <div class="card-link">
+                            <img src="./img/no result_6511543.png" alt="Card Image" class="card-image">
+
+                            <p class="badge badge-marketer">company name</p>
+                            <h2 class="card-title">general description of company here</h2>
+
+                            <h2 class="card-title"> location of company here</h2>
+
+
+                        </div>
+                    </li>
+                    <li class="card-item swiper-slide">
+                        <div class="card-link">
+                            <img src="./img/no result_6511543.png" alt="Card Image" class="card-image">
+
+                            <p class="badge badge-gamer">company name</p>
+                            <h2 class="card-title">general description of company here</h2>
+
+                            <h2 class="card-title"> location of company here</h2>
+
+
+                        </div>
+                    </li>
+
+                </ul>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Navigation Buttons -->
+                <div class="swiper-slide-button swiper-button-prev" style="margin-left: 100px;"></div>
+                <div class="swiper-slide-button swiper-button-next" style="margin-right: 90px;"></div>
+            </div>
+        </div>
+        <!-- Linking SwiperJS script -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!-- Linking custom script -->
+        <script>
+            new Swiper('.card-wrapper', {
+                loop: true,
+                spaceBetween: 30,
+                // Pagination bullets
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true
+                },
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                // Responsive breakpoints
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1
+                    },
+                    768: {
+                        slidesPerView: 2
+                    },
+                    1024: {
+                        slidesPerView: 3
+                    }
+                }
+            });
+        </script>
+    </section>
+
+    <!-- _______________feedBack & Support SECTION_______________  -->
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <div class="center-wrapper">
+        <!-- قسم التقييم -->
+        <div class="feedback-container">
+
+            <h2><i class="fas fa-star"></i> Give Feedback</h2>
+            <div class="star-rating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <textarea id="feedback-text" placeholder="Write your feedback here..."></textarea>
+            <button class="details-btn" onclick="submitFeedback()">Submit Feedback</button>
+        </div>
+
+        <!-- قسم الدعم الفني -->
+        <div class="feedback-container" style="height: 325px;">
+            <h2><i class="fas fa-headset"></i> Get Support</h2>
+            <textarea id="support-desc" placeholder="Describe your issue..." style="margin-top: 55px;"></textarea>
+            <button class="details-btn" onclick="submitSupport()">Send Request</button>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js">
+    </script>
+    <script>
+        $(window).scroll(function () {
+            if ($(window).scrollTop()) {
+                $("nav").addClass("purble");
+            }
+            else {
+                $("nav").removeClass("purble");
+
+            }
+        })
+    </script>
+
+
+    <script src="sweetalert.min.js"></script>
+    <script>
+        function submitForm(form) {
+            swal({
+                title: "Are you sure?",
+                text: "This course will be registered",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then(function (isOkay) {
+                    if (isOkay) {
+                        form.submit();
+                    }
+                });
+            return false;
+        }
+    </script>
+    <!-- SweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+        // تلوين النجوم
+        const stars = document.querySelectorAll('.star');
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const value = parseInt(star.getAttribute('data-value'));
+                stars.forEach(s => s.classList.remove('selected'));
+                for (let i = 0; i < value; i++) {
+                    stars[i].classList.add('selected');
+                }
+            });
+        });
+
+        function submitFeedback() {
+            const text = document.getElementById('feedback-text').value.trim();
+            const selected = document.querySelectorAll('.star.selected').length;
+
+            if (!text || selected === 0) {
+                swal("Error", "Please provide both rating and feedback!", "warning");
+                return;
+            }
+
+            // يمكنك هنا إرسال البيانات إلى السيرفر
+
+            swal("Thank you!", "Your feedback has been submitted.", "success");
+            document.getElementById('feedback-text').value = '';
+            stars.forEach(s => s.classList.remove('selected'));
+        }
+
+        function submitSupport() {
+            const description = document.getElementById('support-desc').value.trim();
+
+            if (!description) {
+                swal("Error", "Please describe your issue.", "warning");
+                return;
+            }
+
+            // يمكنك هنا إرسال البيانات إلى السيرفر
+
+            swal("Request Sent", "Your support request has been received!", "success");
+            document.getElementById('support-desc').value = '';
+        }
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
