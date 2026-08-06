@@ -1,0 +1,230 @@
+:root {
+    --color-primary: #D9D8D9;
+    --color-success: #693B69;
+    --color-white: #fff;
+    --color-black: #000;
+    --color-bg: #A987A8;
+    --color-details: #333;
+    --color-second: #511F52;
+
+
+    --transition: all 400ms ease;
+
+    --padding: 8%
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--color-primary);
+
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#1e293b;
+
+    padding:30px;
+
+  
+
+}
+
+
+
+/* ===========================
+   Hero Section
+=========================== */
+
+.hero{
+
+    width:100%;
+
+    max-width:900px;
+
+}
+
+/* ===========================
+   Card
+=========================== */
+
+.hero-content{
+
+    background:#ffffffa1;
+
+    border-radius:25px;
+
+    padding:70px 50px;
+
+    text-align:center;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+    animation:fadeIn 1s ease;
+
+}
+
+/* ===========================
+   Title
+=========================== */
+
+.hero-content h1{
+
+    font-size:48px;
+
+    color:var(--color-success);
+
+    margin-bottom:25px;
+
+    font-weight:700;
+
+}
+
+/* ===========================
+   Description
+=========================== */
+
+.hero-content p{
+
+    font-size:18px;
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    max-width:650px;
+
+    margin:auto;
+
+}
+
+/* ===========================
+   Buttons Container
+=========================== */
+
+.buttons{
+
+    margin-top:55px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.btn{
+
+    text-decoration:none;
+
+    /* background:#2563eb; */
+    background: #693b69d7;
+
+    border: 1px solid var(--color-second);
+
+    color: #fff;;
+
+    padding:16px 38px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:0 4px 24px -8px var(--color-second);
+
+}
+
+.btn:hover{
+
+    background:#a987a852;
+
+    color: var(--color-second);
+
+    transform:translateY(-6px);
+
+    box-shadow:0 14px 39px  var(--color-second);;
+
+}
+
+/* ===========================
+   Animation
+=========================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+.hero-content{
+
+    padding:45px 30px;
+
+}
+
+.hero-content h1{
+
+    font-size:34px;
+
+}
+
+.hero-content p{
+
+    font-size:16px;
+
+}
+
+.buttons{
+
+    flex-direction:column;
+
+}
+
+.btn{
+
+    width:100%;
+
+}
+
+}
